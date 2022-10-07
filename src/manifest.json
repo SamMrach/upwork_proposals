@@ -1,0 +1,24 @@
+{
+  "name": "chrome angular extension boilerplate",
+  "description": "chrome angular extension boilerplate",
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["https://learnxinyminutes.com/*"],
+      "js": ["content.js"],
+      "css": ["injectedStyles.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ]
+}
