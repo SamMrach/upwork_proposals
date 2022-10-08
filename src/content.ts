@@ -28,16 +28,22 @@ function insertFillButton() {
   fillBtn.innerHTML = 'Fill it';
   fillBtn.className = 'fillBtn';
   fillBtn.addEventListener('click', function () {
-    document
-      .getElementsByClassName('myIframe')[0]
-      .classList.toggle('hideIframe');
+    document.getElementById('myIframe')?.classList.toggle('showIframe');
+    document.getElementById('myIframe')?.classList.toggle('hideIframe');
   });
   document.getElementsByClassName('theme-choice')[0].appendChild(fillBtn);
-  window.addEventListener('click', function (e) {
-    if (document.getElementById('myIframe')?.contains(<Node>e.target)) {
-      document
-        .getElementsByClassName('myIframe')[0]
-        .classList.toggle('hideIframe');
-    }
-  });
+  // window.addEventListener('click', function (e) {
+  //   if (document.getElementById('myIframe')?.contains(<Node>e.target)) {
+  //     document
+  //       .getElementsByClassName('myIframe')[0]
+  //       .classList.toggle('hideIframe');
+  //   }
+  // });
 }
+
+chrome.runtime.onMessage.addListener(function (msg, sender) {
+  if (msg.msg === 'hideIframe') {
+    document.getElementById('myIframe')?.classList.toggle('showIframe');
+    document.getElementById('myIframe')?.classList.toggle('hideIframe');
+  }
+});

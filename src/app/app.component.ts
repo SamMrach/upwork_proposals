@@ -8,5 +8,10 @@ import { proposals } from './components/utils/proposals';
 })
 export class AppComponent implements OnInit {
   ngOnInit(): void {}
-  hideIframe() {}
+  hideIframe() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      //console.log(tabs[0].id);
+      tabs[0].id && chrome.tabs.sendMessage(tabs[0].id, { msg: 'hideIframe' });
+    });
+  }
 }

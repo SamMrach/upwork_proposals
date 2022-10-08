@@ -9,7 +9,10 @@
   transition: all 1.2s ease-in-out;
 }
 .hideIframe {
-  transform: translateX(410px);
+  transform: translateX(430px);
+}
+.showIframe {
+  transform: translateX(0);
 }
 .fillBtn {
   width: 80px;
