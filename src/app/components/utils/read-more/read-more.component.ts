@@ -17,7 +17,8 @@ import { Component, OnInit } from '@angular/core';
         line-height: 20px;
       }
       .read_msg {
-        color: #0000ee !important;
+        color: #5e6d55 !important;
+        cursor: pointer;
       }
       p.collapsed {
         max-height: 60px;

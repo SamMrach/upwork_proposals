@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { Proposal } from '../components/utils/Proposal';
 import { proposals } from '../components/utils/proposals';
 @Injectable({
   providedIn: 'root',
 })
 export class ProposalServiceService {
-  proposals$: BehaviorSubject<Proposal[]> = new BehaviorSubject<Proposal[]>(
-    proposals
-  );
+  proposals$: BehaviorSubject<Proposal[]> = new BehaviorSubject<Proposal[]>([
+    ...proposals,
+  ]);
   filter$ = new BehaviorSubject<String>('');
   constructor() {}
 

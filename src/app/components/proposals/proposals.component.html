@@ -17,7 +17,14 @@
     </div>
   </mat-tab>
   <mat-tab label="Saved">
-    <div class="ifContainer" *ngIf="savedProps.length == 0">
+    <app-proposal
+      *ngFor="let prop of savedProps | async"
+      [title]="prop.title"
+      [description]="prop.description"
+      [id]="prop.id"
+      (remove)="removeProposal($event)"
+    ></app-proposal>
+    <div class="ifContainer" *ngIf="(savedProps | async)?.length == 0">
       <img
         class="no_proposals"
         src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"

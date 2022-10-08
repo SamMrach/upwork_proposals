@@ -1,4 +1,6 @@
-/**main color #001e00 **/
+/**main color #001e00
+#1ed760 green
+**/
 #myIframe {
   position: fixed;
   top: 5px;
@@ -24,9 +26,11 @@
   margin-left: 10px;
   border-radius: 15px;
   font-size: 14px;
-  border: none;
 }
 .fillBtn:hover {
   /* border: 1px solid #14a800;
   background-color: rgb(255, 255, 255); */
+}
+.up-form-group > label {
+  width: 27%;
 }

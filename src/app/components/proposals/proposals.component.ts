@@ -11,11 +11,17 @@ import { proposals } from '../utils/proposals';
 })
 export class ProposalsComponent implements OnInit {
   proposals: Observable<Proposal[]>;
-  savedProps: Proposal[] = [];
-  //savedProps: Observable<Proposal[]>;
+  //savedProps: Proposal[] = [];
+  savedProps: Observable<Proposal[]>;
   constructor(private proposalServ: ProposalServiceService) {
     this.proposals = proposalServ.proposals$;
-    //this.savedProps=proposalServ.proposals$.pipe(map(proposal =>proposal.))
+    // proposalServ.proposals$.subscribe((proposal: Proposal[]) => {
+    //   console.log('subscribe', proposal.length);
+    //   this.savedProps = proposal.filter((prop) => prop.saved);
+    // });
+    this.savedProps = proposalServ.proposals$.pipe(
+      map((proposals) => proposals.filter((prop) => prop.saved))
+    );
   }
 
   ngOnInit(): void {
