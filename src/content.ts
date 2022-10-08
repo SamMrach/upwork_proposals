@@ -4,7 +4,9 @@ let API = chrome;
 document.onreadystatechange = function () {
   if (document.readyState == 'complete') {
     insertIframe();
-    insertFillButton();
+    waitForElm().then((res) => {
+      insertFillButton();
+    });
   }
 };
 function insertIframe() {
@@ -31,14 +33,7 @@ function insertFillButton() {
     document.getElementById('myIframe')?.classList.toggle('showIframe');
     document.getElementById('myIframe')?.classList.toggle('hideIframe');
   });
-  document.getElementsByClassName('theme-choice')[0].appendChild(fillBtn);
-  // window.addEventListener('click', function (e) {
-  //   if (document.getElementById('myIframe')?.contains(<Node>e.target)) {
-  //     document
-  //       .getElementsByClassName('myIframe')[0]
-  //       .classList.toggle('hideIframe');
-  //   }
-  // });
+  document.querySelectorAll('#cover_letter_label')[0].appendChild(fillBtn);
 }
 
 chrome.runtime.onMessage.addListener(function (msg, sender) {
@@ -47,3 +42,22 @@ chrome.runtime.onMessage.addListener(function (msg, sender) {
     document.getElementById('myIframe')?.classList.toggle('hideIframe');
   }
 });
+function waitForElm() {
+  return new Promise((resolve) => {
+    if (document.querySelectorAll('#cover_letter_label')[0]) {
+      return resolve(document.querySelectorAll('#cover_letter_label')[0]);
+    }
+
+    const observer = new MutationObserver((mutations) => {
+      if (document.querySelectorAll('#cover_letter_label')[0]) {
+        resolve(document.querySelectorAll('#cover_letter_label')[0]);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}

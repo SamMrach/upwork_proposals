@@ -2,5 +2,11 @@
   margin-left: 10px;
 }
 .btn {
+  color: #001e00;
+  border: 1px solid #001e00;
   margin-right: 10px;
+}
+.btn:hover {
+  color: white;
+  background: #001e00;
 }

@@ -8,11 +8,21 @@
     </read-more>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button color="primary">Apply</button>
-    <button mat-stroked-button color="primary" (click)="redirectToEdit()">
+    <button mat-stroked-button color="primary" class="black_btn">Apply</button>
+    <button
+      mat-stroked-button
+      color="primary"
+      class="black_btn"
+      (click)="redirectToEdit()"
+    >
       Edit
     </button>
-    <button mat-stroked-button color="primary" (click)="handleRemove()">
+    <button
+      mat-stroked-button
+      color="primary"
+      class="black_btn"
+      (click)="handleRemove()"
+    >
       Delete
     </button>
   </mat-card-actions>

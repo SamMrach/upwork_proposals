@@ -19,8 +19,16 @@
     <textarea matInput placeholder="" formControlName="description"></textarea>
   </mat-form-field>
   <div class="btns_block">
-    <button type="submit" mat-stroked-button color="primary">Add</button>
-    <button type="button" mat-raised-button color="primary" (click)="cancel()">
+    <button type="submit" mat-stroked-button color="primary" class="black_btn">
+      Add
+    </button>
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      class="black_all"
+      (click)="cancel()"
+    >
       Cancel
     </button>
   </div>
