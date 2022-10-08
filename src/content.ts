@@ -1,5 +1,6 @@
 let d = document;
 let API = chrome;
+//import Typewriter from '../../node_modules/typewriter-effect/dist/core';
 
 document.onreadystatechange = function () {
   if (document.readyState == 'complete') {
@@ -36,12 +37,6 @@ function insertFillButton() {
   document.querySelectorAll('#cover_letter_label')[0].appendChild(fillBtn);
 }
 
-chrome.runtime.onMessage.addListener(function (msg, sender) {
-  if (msg.msg === 'hideIframe') {
-    document.getElementById('myIframe')?.classList.toggle('showIframe');
-    document.getElementById('myIframe')?.classList.toggle('hideIframe');
-  }
-});
 function waitForElm() {
   return new Promise((resolve) => {
     if (document.querySelectorAll('#cover_letter_label')[0]) {
@@ -61,3 +56,20 @@ function waitForElm() {
     });
   });
 }
+
+////////// listen for messages from background
+chrome.runtime.onMessage.addListener(function (msg, sender) {
+  if (msg.msg === 'hideIframe') {
+    document.getElementById('myIframe')?.classList.toggle('showIframe');
+    document.getElementById('myIframe')?.classList.toggle('hideIframe');
+  }
+  if (msg.msg == 'apply') {
+    (<HTMLInputElement>document.querySelectorAll('.up-textarea')[0]).value =
+      msg.body;
+    var e = document.createEvent('HTMLEvents');
+    e.initEvent('input', true, true);
+    (<HTMLInputElement>(
+      document.querySelector('.form-group.up-form-group .up-textarea')
+    )).dispatchEvent(e);
+  }
+});

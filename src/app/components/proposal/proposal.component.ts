@@ -21,4 +21,14 @@ export class ProposalComponent implements OnInit {
   redirectToEdit() {
     this.route.navigate(['/edit'], { queryParams: { id: this.id } });
   }
+  applyProposal() {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      //console.log(tabs[0].id);
+      tabs[0].id &&
+        chrome.tabs.sendMessage(tabs[0].id, {
+          msg: 'apply',
+          body: this.description,
+        });
+    });
+  }
 }
