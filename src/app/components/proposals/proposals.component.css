@@ -1,0 +1,15 @@
+.no_proposals {
+  margin-top: 50px;
+  width: 200px;
+  height: 300px;
+}
+.ifContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ifContainer > p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #0000ee;
+}

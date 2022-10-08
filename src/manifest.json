@@ -1,6 +1,6 @@
 {
-  "name": "chrome angular extension boilerplate",
-  "description": "chrome angular extension boilerplate",
+  "name": "upwork proposals",
+  "description": "upwork proposals",
   "manifest_version": 3,
   "version": "1.0.0",
   "action": {
@@ -17,7 +17,7 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["index.html"],
+      "resources": ["index.html", "assets/*"],
       "matches": ["http://*/*", "https://*/*"]
     }
   ]

@@ -1,0 +1,25 @@
+#myIframe {
+  position: fixed;
+  top: 5px;
+  right: 0%;
+  height: 700px;
+  border: none;
+  width: 440px;
+  z-index: 10000;
+  transition: all 1.2s ease-in-out;
+}
+.hideIframe {
+  transform: translateX(410px);
+}
+.fillBtn {
+  width: 80px;
+  height: 35px;
+  background-color: #0000ee;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+.fillBtn:hover {
+  background-color: black;
+}

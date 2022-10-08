@@ -1,1 +1,45 @@
-<h1>sdsd</h1>
+<div class="container">
+  <button
+    (click)="hideIframe()"
+    class="hide_btn"
+    mat-fab
+    color="primary"
+    aria-label="Example icon button with a delete icon"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <app-header class="header"></app-header>
+  <div class="body">
+    <router-outlet></router-outlet>
+    <!-- <mat-tab-group>
+      <mat-tab label="All">
+        <app-proposal
+          *ngFor="let prop of proposals"
+          [title]="prop.title"
+          [description]="prop.description"
+          [id]="prop.id"
+          (remove)="removeProposal($event)"
+        ></app-proposal>
+        <div class="ifContainer" *ngIf="proposals.length == 0">
+          <img
+            class="no_proposals"
+            src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
+            alt="no_proposal"
+          />
+          <p>Add new proposals</p>
+        </div>
+      </mat-tab>
+      <mat-tab label="Saved">
+        <div class="ifContainer" *ngIf="savedProps.length == 0">
+          <img
+            class="no_proposals"
+            src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
+            alt="no_proposal"
+          />
+          <p>Try save new proposals</p>
+        </div>
+      </mat-tab>
+    </mat-tab-group> -->
+  </div>
+</div>

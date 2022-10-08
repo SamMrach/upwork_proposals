@@ -1,0 +1,24 @@
+.example-form {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-top: 50px;
+  margin-left: 50px;
+}
+.custom_width {
+  width: 300px;
+}
+button {
+  width: 80px;
+}
+.btns_block {
+  width: 180px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+textarea {
+  height: 120px;
+}

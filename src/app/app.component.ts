@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Proposal } from './components/utils/Proposal';
+import { proposals } from './components/utils/proposals';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'proposals';
+export class AppComponent implements OnInit {
+  ngOnInit(): void {}
+  hideIframe() {}
 }

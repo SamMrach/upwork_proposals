@@ -1,0 +1,27 @@
+<form
+  class="example-form"
+  [formGroup]="proposalForm"
+  (ngSubmit)="handleSubmit()"
+>
+  <p>Add proposal</p>
+  <mat-form-field class="example-full-width custom_width" appearance="fill">
+    <mat-label>enter a title</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Proposal "
+      value=""
+      formControlName="title"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width custom_width" appearance="fill">
+    <mat-label>Enter a proposal</mat-label>
+    <textarea matInput placeholder="" formControlName="description"></textarea>
+  </mat-form-field>
+  <div class="btns_block">
+    <button type="submit" mat-stroked-button color="primary">Add</button>
+    <button type="button" mat-raised-button color="primary" (click)="cancel()">
+      Cancel
+    </button>
+  </div>
+</form>
