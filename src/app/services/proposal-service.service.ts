@@ -10,17 +10,29 @@ export class ProposalServiceService {
     ...proposals,
   ]);
   //filter$ = new BehaviorSubject<String>('');
-  constructor() {}
+  constructor() {
+    if (!localStorage.getItem('proposals')) {
+      localStorage.setItem('proposals', JSON.stringify(proposals));
+    }
+    this.proposals$.next(this.getLocalStorage());
+  }
 
   addProposal(proposal: Proposal) {
-    this.proposals$.next([...this.proposals$.getValue(), proposal]);
+    const actual = this.getLocalStorage();
+    actual.push(proposal);
+    localStorage.setItem('proposals', JSON.stringify(actual));
+    this.proposals$.next(this.getLocalStorage());
   }
   removeProposal(id: number): void {
-    const props = this.proposals$.getValue().filter((prop) => prop.id !== id);
-    this.proposals$.next(props);
+    let actual: Proposal[] = this.getLocalStorage();
+    actual = actual.filter((prop) => prop.id !== id);
+    localStorage.setItem('proposals', JSON.stringify(actual));
+    //const props = this.proposals$.getValue().filter((prop) => prop.id !== id);
+    this.proposals$.next(this.getLocalStorage());
   }
   editProposal(Proposal: Proposal): void {
-    const updatedProps = this.proposals$.getValue().map((prop) => {
+    let actual: Proposal[] = this.getLocalStorage();
+    const updatedProps = actual.map((prop) => {
       if (prop.id == Proposal.id) {
         return {
           ...prop,
@@ -30,15 +42,19 @@ export class ProposalServiceService {
       }
       return prop;
     });
-    this.proposals$.next(updatedProps);
+    localStorage.setItem('proposals', JSON.stringify(updatedProps));
+    this.proposals$.next(this.getLocalStorage());
   }
   filterProposal(name: string) {
     this.proposals$.next(
-      proposals.filter(
-        (prop) =>
+      this.getLocalStorage().filter(
+        (prop: Proposal) =>
           prop.title.toLowerCase().includes(name) ||
           prop.description.toLowerCase().includes(name)
       )
     );
+  }
+  getLocalStorage() {
+    return JSON.parse(localStorage.getItem('proposals') || '');
   }
 }
