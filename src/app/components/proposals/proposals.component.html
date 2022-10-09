@@ -1,36 +1,39 @@
-<mat-tab-group>
-  <mat-tab label="All">
-    <app-proposal
-      *ngFor="let prop of proposals | async"
-      [title]="prop.title"
-      [description]="prop.description"
-      [id]="prop.id"
-      (remove)="removeProposal($event)"
-    ></app-proposal>
-    <div class="ifContainer" *ngIf="(proposals | async)?.length == 0">
-      <img
-        class="no_proposals"
-        src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
-        alt="no_proposal"
-      />
-      <p>Add new proposals</p>
-    </div>
-  </mat-tab>
-  <mat-tab label="Saved">
-    <app-proposal
-      *ngFor="let prop of savedProps | async"
-      [title]="prop.title"
-      [description]="prop.description"
-      [id]="prop.id"
-      (remove)="removeProposal($event)"
-    ></app-proposal>
-    <div class="ifContainer" *ngIf="(savedProps | async)?.length == 0">
-      <img
-        class="no_proposals"
-        src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
-        alt="no_proposal"
-      />
-      <p>Try save new proposals</p>
-    </div>
-  </mat-tab>
-</mat-tab-group>
+<app-search class="search_container"></app-search>
+<div class="proposals_container">
+  <mat-tab-group>
+    <mat-tab label="All">
+      <app-proposal
+        *ngFor="let prop of proposals | async"
+        [title]="prop.title"
+        [description]="prop.description"
+        [id]="prop.id"
+        (remove)="removeProposal($event)"
+      ></app-proposal>
+      <div class="ifContainer" *ngIf="(proposals | async)?.length == 0">
+        <img
+          class="no_proposals"
+          src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
+          alt="no_proposal"
+        />
+        <p>Add new proposals</p>
+      </div>
+    </mat-tab>
+    <mat-tab label="Saved">
+      <app-proposal
+        *ngFor="let prop of savedProps | async"
+        [title]="prop.title"
+        [description]="prop.description"
+        [id]="prop.id"
+        (remove)="removeProposal($event)"
+      ></app-proposal>
+      <div class="ifContainer" *ngIf="(savedProps | async)?.length == 0">
+        <img
+          class="no_proposals"
+          src="https://assets.materialup.com/uploads/76f21c51-992b-4a41-a9fc-b852a9ab5e72/preview.png"
+          alt="no_proposal"
+        />
+        <p>Try save new proposals</p>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

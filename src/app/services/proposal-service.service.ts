@@ -9,7 +9,7 @@ export class ProposalServiceService {
   proposals$: BehaviorSubject<Proposal[]> = new BehaviorSubject<Proposal[]>([
     ...proposals,
   ]);
-  filter$ = new BehaviorSubject<String>('');
+  //filter$ = new BehaviorSubject<String>('');
   constructor() {}
 
   addProposal(proposal: Proposal) {
@@ -32,7 +32,13 @@ export class ProposalServiceService {
     });
     this.proposals$.next(updatedProps);
   }
-  changeFilter(filtername: String) {
-    this.filter$.next(filtername);
+  filterProposal(name: string) {
+    this.proposals$.next(
+      proposals.filter(
+        (prop) =>
+          prop.title.toLowerCase().includes(name) ||
+          prop.description.toLowerCase().includes(name)
+      )
+    );
   }
 }

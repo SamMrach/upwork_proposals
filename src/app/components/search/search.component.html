@@ -1,0 +1,5 @@
+<mat-form-field appearance="fill" class="fullWidth">
+  <mat-label>Search proposals by title,description</mat-label>
+  <input matInput [(ngModel)]="searchTerm" (input)="handleInput()" />
+  <mat-icon matPrefix>search</mat-icon>
+</mat-form-field>

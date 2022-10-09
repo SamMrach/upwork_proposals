@@ -12,6 +12,7 @@ import { ReadMoreComponent } from './components/utils/read-more/read-more.compon
 import { ProposalsComponent } from './components/proposals/proposals.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
+import { SearchComponent } from './components/search/search.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { EditComponent } from './components/edit/edit.component';
     ProposalsComponent,
     AddComponent,
     EditComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
