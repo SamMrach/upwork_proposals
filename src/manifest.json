@@ -1,10 +1,14 @@
 {
-  "name": "upwork proposals",
-  "description": "upwork proposals",
+  "name": "Proposi",
+  "author": "Samir Merrach",
+  "description": "Write better upwork proposals",
   "manifest_version": 3,
-  "version": "1.0.0",
-  "action": {
-    "default_popup": "index.html"
+  "version": "1.0.1",
+  "action": {},
+  "icons": {
+    "16": "assets/images/16.png",
+    "48": "assets/images/48.png",
+    "128": "assets/images/128.png"
   },
   "background": { "service_worker": "background.js" },
   "content_scripts": [

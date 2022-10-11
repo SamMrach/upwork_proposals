@@ -26,15 +26,17 @@ function insertIframe() {
   }
 }
 function insertFillButton() {
-  const fillBtn = document.createElement('button');
-  fillBtn.id = 'fill-btn';
-  fillBtn.innerHTML = 'Fill it';
-  fillBtn.className = 'fillBtn';
-  fillBtn.addEventListener('click', function () {
-    document.getElementById('myIframe')?.classList.toggle('showIframe');
-    document.getElementById('myIframe')?.classList.toggle('hideIframe');
-  });
-  document.querySelectorAll('#cover_letter_label')[0].appendChild(fillBtn);
+  if (!document.querySelector('#fill-btn')) {
+    const fillBtn = document.createElement('button');
+    fillBtn.id = 'fill-btn';
+    fillBtn.innerHTML = 'Fill it';
+    fillBtn.className = 'fillBtn';
+    fillBtn.addEventListener('click', function () {
+      document.getElementById('myIframe')?.classList.toggle('showIframe');
+      document.getElementById('myIframe')?.classList.toggle('hideIframe');
+    });
+    document.querySelectorAll('#cover_letter_label')[0].appendChild(fillBtn);
+  }
 }
 
 function waitForElm() {
